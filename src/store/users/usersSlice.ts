@@ -5,7 +5,6 @@ import { IUser } from '../../types/IUser';
 
 export type TDataLike = {
   id: number;
-  // like: boolean;
 };
 
 export interface IUsersState {

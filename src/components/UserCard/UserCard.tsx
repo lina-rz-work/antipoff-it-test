@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { Break } from '../Break'
 import { Text } from '../Text'
 import { EIcons, Icon } from '../Icon'
@@ -7,10 +9,18 @@ import { IUser } from '../../types/IUser'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { changeLikeUser } from '../../store/users/usersSlice'
+import { RootState } from '../../store/store'
 
 export const UserCard: React.FC<IUser> = ({ id, first_name, avatar }) => {
+  const likedCard = useSelector((state: RootState) => state.users.dataLike).find(userId => Number(userId) === id);
   const dispatch = useDispatch()
   const [like, setLike] = useState(false)
+
+  useEffect(() => {
+    if (likedCard) {
+      setLike(true);
+    }
+  }, [likedCard]);
 
   return (
     <li className={styles.card}>
