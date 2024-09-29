@@ -1,0 +1,52 @@
+@import '../../scss/mixin';
+@import '../../scss/variables';
+
+.descriptionWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+
+  & > :last-child {
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 21.79px;
+  }
+
+  @include atLaptop768 {
+    flex-direction: row;
+    padding: 50px 190px;
+
+    & > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.description {
+  order: 1;
+  flex-grow: 1;
+  max-width: 630px;
+
+  @include atLaptop768 {
+    order: 0;
+    margin-right: 100px;
+  }
+}
+
+.contactsList {
+  & > li:not(:last-child) {
+    margin-bottom: 25px;
+  }
+}
+
+.contactsItem {
+  display: flex;
+  align-items: center;
+
+  & > svg {
+    margin-right: 10px;
+  }
+}

@@ -1,0 +1,135 @@
+@import '../../scss/mixin';
+@import '../../scss/variables';
+
+.cardsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-items: center;
+  gap: 20px;
+  padding: 32px 32px;
+
+  & > li {
+    display: none;
+  }
+
+  & > li:nth-child(-n + 4) {
+    display: flex;
+  }
+
+  @include atLaptop768 {
+    padding: 50px 80px;
+  }
+}
+
+.cardsList {
+  & > li.show {
+    display: flex;
+  }
+}
+
+.buttonMore {
+  height: max-content;
+  border: 1px solid #808185;
+  padding: 8px 16px;
+  border-radius: 8px;
+
+  &:hover {
+    color: $white;
+    background-color: $grey;
+  }
+}
+
+.buttonMore.showButton {
+  display: none;
+}
+
+.bottomContainer {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 0 100px 40px;
+}
+
+.gap {
+  width: 70px;
+}
+
+.paginationList {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+
+  & > :not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.paginationItem {
+  position: relative;
+  border: 1px solid $grey;
+  padding: 8px 10px;
+  border-radius: 8px;
+  max-height: 34px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $grey;
+  }
+}
+
+.paginationItemActive {
+  position: relative;
+  background-color: $grey;
+  color: $white;
+  border: 1px solid $grey;
+  padding: 8px 10px;
+  border-radius: 8px;
+  max-height: 34px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $grey;
+  }
+}
+
+// loader
+.ldsDualRing {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+.ldsDualRing:after {
+  content: ' ';
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid $violet;
+  border-color: $violet $violet $violet transparent;
+  animation: ldsDualRing 1.2s linear infinite;
+}
+
+@keyframes ldsDualRing {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.description {
+  text-align: center;
+  margin-top: 50px;
+
+  a {
+    color: $violet;
+    font-weight: 600;
+
+    &:hover {
+      color: $black;
+    }
+  }
+}
